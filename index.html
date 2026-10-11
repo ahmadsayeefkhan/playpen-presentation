@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Playpen Website Presentation</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1C1715;--ink2:#262019;--ink3:#322A23;--line:#4A3F36;--paper:#F5F1EA;--soft:#CFC7BB;--mute:#9A9086;--maroon:#8A0204;--gold:#D4AE5C;
+--disp:'Newsreader',Georgia,serif;--body:'Hanken Grotesk',system-ui,'Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(14px,min(2.15vh,1.45vw),30px)}
+html,body{background:var(--ink);color:var(--paper);font-family:var(--body)}
+body{-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.deck{position:relative}
+.slide{position:relative;min-height:100vh;min-height:100dvh;padding:5.5rem 6vw 5rem;display:flex;flex-direction:column;justify-content:center;overflow:hidden;scroll-snap-align:start}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 55% at 85% 8%,rgba(138,2,4,.30),transparent 70%),radial-gradient(50% 50% at 0% 100%,rgba(212,174,92,.07),transparent 70%)}
+.slide>*{position:relative}
+.kicker{font:700 .8rem/1.2 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+h1,h2,h3{font-family:var(--disp);font-weight:500;letter-spacing:-.02em;line-height:1.04}
+h1{font-size:clamp(3rem,7.2vw,7rem)} h1 em,h2 em{font-style:italic;color:var(--gold)}
+h2{font-size:clamp(2.2rem,4.1vw,4.2rem);max-width:15em} h3{font-size:1.5rem}
+p,li{font-size:1.3rem;line-height:1.5;color:var(--soft)}
+.lede{font-size:1.5rem;line-height:1.5;color:var(--soft);max-width:30em;margin-top:1.4rem}
+b,strong{color:var(--paper);font-weight:700}
+.dot{color:var(--gold)}
+.list{list-style:none;margin-top:1.8rem;display:grid;gap:.95rem}
+.list li{display:flex;gap:.9rem;align-items:flex-start}
+.list li::before{content:"";flex:none;width:.6rem;height:.6rem;border-radius:50%;background:var(--gold);margin-top:.62rem}
+.list li b{display:block}
+.browser{border-radius:.9rem;overflow:hidden;background:var(--ink2);border:1px solid var(--line);box-shadow:0 2.5rem 5rem rgba(0,0,0,.55)}
+.browser .bar{display:flex;gap:.4rem;padding:.65rem .9rem;background:var(--ink3)}
+.browser .bar i{width:.65rem;height:.65rem;border-radius:50%;background:#665b50}
+.browser img{display:block;width:100%;height:auto}
+.cover{justify-content:flex-end;padding-bottom:13vh}
+.cover .brand{display:flex;align-items:center;gap:.8rem;font:700 1.05rem var(--body);letter-spacing:.2em;text-transform:uppercase;position:absolute;top:2.2rem;left:6vw}
+.cover .brand span{width:1.6rem;height:2rem;background:var(--maroon);border-radius:.3rem .3rem 50% 50%;border:2px solid var(--gold);display:inline-block}
+.cover .meta{margin-top:3rem;display:flex;gap:3rem;flex-wrap:wrap;font-size:1.1rem;color:var(--mute)}
+.cover .meta b{display:block;color:var(--soft);font-weight:500}
+.cover .vidwrap{position:absolute;right:6vw;top:50%;transform:translateY(-52%);width:46%}
+.cover .vidwrap video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#F5F1EA}
+.cover .lede{max-width:20em}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3.2rem}
+.num{border-top:2px solid var(--line);padding-top:1.2rem}
+.num strong{display:block;font:500 clamp(3.4rem,7vw,7.2rem)/1 var(--disp);letter-spacing:-.04em}
+.num span{display:block;margin-top:.6rem;font-size:1.3rem;color:var(--soft)}
+.note{margin-top:1.8rem;font-size:1.1rem;color:var(--mute);max-width:46em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;margin-top:1.6rem}
+.tcol{min-width:0}
+.tcol .browser img{height:20vh;object-fit:cover;object-position:top;width:100%}
+.tcol h3{margin-top:.7rem;font-size:1.5rem}
+.num3{font:700 .85rem var(--body);letter-spacing:.16em;color:var(--gold);margin-top:1rem}
+.list.tight{margin-top:.6rem;gap:.6rem}
+.list.tight li{font-size:1.1rem;line-height:1.4}
+.duo2{display:grid;grid-template-columns:1fr 1fr;gap:3vw;align-items:start;margin-top:1.4rem}
+.duo2>*{min-width:0}
+.pair{display:grid;gap:1.2rem}
+.pair .browser img{height:19vh;object-fit:cover;object-position:top}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.chips span{border:1px solid var(--line);border-radius:2rem;padding:.35rem 1rem;font-size:1.05rem;color:var(--soft)}
+.chips span.done{border-color:var(--gold);color:var(--gold)}
+.free{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:2rem;padding:.35rem 1rem;font:700 .9rem var(--body);letter-spacing:.14em;text-transform:uppercase}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:1.6rem;position:relative}
+.steps::before{content:"";position:absolute;left:5%;right:5%;top:1.15rem;height:2px;background:var(--line)}
+.step{position:relative;padding-right:.4rem}
+.step .n{width:2.4rem;height:2.4rem;border-radius:50%;background:var(--ink);border:2px solid var(--line);display:grid;place-items:center;font:500 1.1rem var(--disp);position:relative;margin-bottom:.7rem}
+.step.zero .n{border-color:var(--gold);background:var(--gold);color:var(--ink)}
+.step h3{font-size:1.15rem;line-height:1.15}
+.step .when,.step .free{display:inline-block;margin-top:.5rem;font:700 .85rem var(--body);letter-spacing:.12em;text-transform:uppercase}
+.step .when{color:var(--paper)}
+.cost{display:grid;grid-template-columns:1fr 2fr;gap:1.4rem;margin-top:1.2rem}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:1.1rem;padding:1.2rem 1.4rem}
+.card h3{font-size:1.25rem}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.8rem}
+.minis div{border-left:2px solid var(--line);padding-left:1rem}
+.minis b{display:block;font:700 1rem var(--body)}
+.minis .price{display:block;font:500 clamp(1.6rem,2.6vw,2.6rem)/1 var(--disp);margin:.4rem 0 .2rem;white-space:nowrap}
+.minis small{font-size:.95rem;color:var(--mute)}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-items:center;gap:1rem;padding:1rem 6vw 1.2rem;background:linear-gradient(to top,rgba(28,23,21,.95),rgba(28,23,21,0))}
+.nav .count{font:500 .95rem var(--body);letter-spacing:.14em;color:var(--mute);min-width:5.5em}
+.nav .barr{flex:1;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.nav .barr i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s ease}
+.nav button{width:3.2rem;height:3.2rem;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:1.3rem}
+.nav button:hover:not(:disabled){background:var(--ink3)}
+.nav button:disabled{opacity:.3;cursor:default}
+.tag{position:fixed;top:1.6rem;right:6vw;z-index:5;font:500 .8rem var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.slide.s5{padding-top:3.8rem;padding-bottom:5.6rem;justify-content:flex-start}
+.s5 .h2s{font-size:clamp(1.8rem,2.9vw,3rem);max-width:none;white-space:nowrap}
+.s5 .kicker{margin-bottom:.5rem}
+.s5 .steps{margin-top:.7rem}
+.s5 .step h3{font-size:1rem}
+.s5 .step.on1 .n{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.s5 .step.zero.done .n{background:#8FBF9F;border-color:#8FBF9F;color:var(--ink);font-size:1.2rem}
+.s5 .step.zero.done .free{border-color:#8FBF9F;color:#8FBF9F}
+.s5top{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem}
+.s5 .s5sub{font-size:1rem;color:var(--mute);margin:0 0 .45rem;text-align:right;max-width:22em}
+.freebar{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;align-items:center;margin-top:.8rem;padding:.55rem 1rem;border:1px dashed var(--line);border-radius:.8rem;font-size:1rem;color:var(--soft)}
+.freebar b{color:var(--paper)} .freebar .free{font-size:.8rem;border-color:#8FBF9F;color:#8FBF9F}
+.pickrow{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-top:.8rem}
+.pickrow h3{font-size:1.45rem}
+.pnote{display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;text-align:right;font-size:.95rem;color:var(--mute)}
+.tiers{display:grid;grid-template-columns:1fr 1.14fr 1fr;gap:1rem;align-items:end;margin-top:1.4rem}
+.tier{position:relative;border:1px solid var(--line);border-radius:1.1rem;padding:1rem 1.2rem 1.1rem;background:var(--ink2)}
+.tier .tname{font:500 1.2rem var(--disp);color:var(--soft)}
+.tier .tprice{font:500 clamp(1.7rem,2.5vw,2.6rem)/1 var(--disp);letter-spacing:-.03em;margin:.45rem 0 .6rem;white-space:nowrap}
+.tier .tprice em{font:500 .42em var(--body);letter-spacing:0;color:var(--soft);margin-left:.35em;font-style:normal}
+.dots{display:flex;align-items:center;gap:.3rem;flex-wrap:nowrap;min-height:1.2rem}
+.dots b{width:.7rem}
+.d{display:inline-block;width:.85rem;height:.85rem;border-radius:50%;border:2px solid var(--mute);flex:none}
+.d.on{background:var(--gold);border-color:var(--gold)}
+.tier .tmeet{margin-top:.55rem;font-size:1rem;color:var(--paper);font-weight:500}
+.tier .tplus{margin-top:.2rem;font-size:.92rem;color:var(--soft)}
+.tier.t1{opacity:.82}
+.tier.t1 .tprice{font-size:clamp(1.5rem,2.1vw,2.2rem)}
+.tier.t1 .d.on{background:var(--mute);border-color:var(--mute)}
+.tier.t2{padding:1.5rem 1.3rem 1.25rem;border:2px solid var(--gold);background:linear-gradient(165deg,color-mix(in srgb,var(--maroon) 55%,var(--ink2)),var(--ink2) 65%);box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 50%,transparent),0 1.6rem 3.2rem color-mix(in srgb,var(--maroon) 45%,transparent)}
+.tier.t2 .tname{color:var(--paper);font-size:1.4rem}
+.tier.t2 .tprice{font-size:clamp(2rem,3vw,3.1rem)}
+.tier.t2 .tmeet{font-size:1.1rem}
+.tier.t3{border-color:color-mix(in srgb,var(--paper) 55%,transparent);padding:1.25rem 1.2rem 1.1rem;background:linear-gradient(165deg,color-mix(in srgb,var(--paper) 9%,var(--ink2)),var(--ink2) 70%)}
+.tier.t3 .tname{color:var(--paper)}
+.ribbon{position:absolute;top:0;left:50%;transform:translate(-50%,-55%);background:var(--gold);color:var(--ink);font:700 .78rem var(--body);letter-spacing:.16em;text-transform:uppercase;padding:.4em 1.1em;border-radius:2em;white-space:nowrap}
+.ribbon.alt{background:var(--paper)}
+.legend{display:inline-flex;align-items:center;gap:.4rem}
+.legend .d{width:.7rem;height:.7rem}
+@media (max-aspect-ratio:1/1),(max-width:820px){.s5 .h2s{white-space:normal}.tiers{grid-template-columns:1fr;gap:1.6rem}.s5top,.pnote{align-items:flex-start;text-align:left;flex-direction:column}}
+@media (max-aspect-ratio:1/1),(max-width:820px){
+ html{font-size:clamp(15px,3.6vw,22px)}
+ .slide{justify-content:flex-start;overflow-y:auto;padding:4rem 6vw 6rem}
+ .trio,.duo2,.nums,.cost,.minis{grid-template-columns:1fr}
+ .tcol .browser img,.pair .browser img{height:auto}
+ .steps{grid-template-columns:1fr;gap:1.4rem}.steps::before{display:none}
+ .cover{justify-content:flex-start;padding-top:5rem}
+ .cover .vidwrap{position:relative;right:auto;top:auto;transform:none;width:100%;order:5;margin-top:2rem}}
+@media (max-aspect-ratio:1/1),(max-width:820px){
+ html{font-size:16px}
+ .deck{bottom:4.2rem}
+ .nav{padding:.7rem 5vw;background:var(--ink);border-top:1px solid var(--line);gap:.8rem}
+ .nav button{width:2.8rem;height:2.8rem}
+ .tag{display:none!important}
+ .slide{padding:2rem 5vw 2rem;-webkit-overflow-scrolling:touch}
+ .slide::before{background:radial-gradient(90% 40% at 80% 0%,rgba(138,2,4,.35),transparent 70%)}
+ .kicker{font-size:.72rem;margin-bottom:.6rem}
+ h1{font-size:3.2rem} h2{font-size:1.9rem;max-width:none} h3{font-size:1.25rem}
+ p,li{font-size:1.02rem;line-height:1.45}
+ .lede{font-size:1.1rem;margin-top:.9rem}
+ .cover{padding-top:4.2rem}
+ .cover .brand{top:1.3rem;left:5vw;font-size:.85rem}
+ .cover .meta{margin-top:1rem;gap:.5rem 1.4rem;font-size:.85rem}
+ .cover .sitebtn{margin-top:.8rem;padding:.65rem 1.1rem}
+ .cover .lede{font-size:1rem}
+ .cover .vidwrap{margin-top:1.4rem}
+ .nums{grid-template-columns:1fr 1fr;gap:1.2rem 1rem;margin-top:1.6rem}
+ .num strong{font-size:3.2rem} .num span{font-size:.95rem;line-height:1.35}
+ .note{font-size:.9rem;margin-top:1.4rem}
+ .trio{display:flex;gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;margin:1.2rem -5vw 0;padding:0 5vw .6rem;-webkit-overflow-scrolling:touch}
+ .trio .tcol{flex:0 0 82%;scroll-snap-align:center}
+ .trio .tcol .browser img{height:auto;aspect-ratio:16/9;object-fit:cover}
+ .swipehint{display:block}
+ .pair{gap:.9rem}
+ .chips{gap:.4rem;margin-top:1rem}.chips span{font-size:.9rem;padding:.25rem .75rem}
+ .s5 .h2s{font-size:1.7rem}
+ .s5top{flex-direction:column;align-items:flex-start;gap:.3rem}
+ .s5 .s5sub{text-align:left;font-size:.9rem;margin:0}
+ .steps{grid-template-columns:1fr;gap:.55rem;margin-top:1rem}
+ .step{display:grid;grid-template-columns:2.2rem 1fr;gap:0 .8rem;align-items:center;padding:0}
+ .step .n{grid-row:1/3;margin:0;width:2.2rem;height:2.2rem;font-size:1rem}
+ .step h3,.s5 .step h3{font-size:1rem}
+ .step .when,.step .free{margin-top:.1rem;font-size:.72rem;justify-self:start;padding:.15rem .7rem}
+ .step .when{padding:0}
+ .freebar{font-size:.9rem;gap:.3rem 1rem}
+ .pickrow{margin-top:1rem}.pickrow h3{font-size:1.2rem}
+ .pnote{align-items:flex-start;text-align:left;font-size:.85rem}
+ .tiers{gap:1.4rem;margin-top:1.1rem;padding-bottom:.5rem}
+ .tier,.tier.t1,.tier.t2,.tier.t3{opacity:1;padding:1.1rem 1.1rem 1rem}
+ .tier.t2{order:-1}
+ .tier .tprice,.tier.t1 .tprice,.tier.t2 .tprice{font-size:2rem}
+}
+/* ---- scroll story ---- */
+html{scroll-behavior:smooth;scroll-snap-type:y proximity;overflow-y:scroll}
+.rv{opacity:0;transform:translateY(1.6rem);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s);will-change:opacity,transform}
+.rv.in{opacity:1;transform:none}
+.nojs .rv{opacity:1;transform:none}
+.steps::before{transform-origin:left;transition:transform 1.1s .2s cubic-bezier(.2,.7,.2,1)}
+.steps.rvline::before{transform:scaleX(0)}
+.steps.rvline.in::before{transform:scaleX(1)}
+.cover .vidwrap{transform:translateY(calc(-52% + var(--py,0px)))}
+.cover h1{transform:translateY(var(--hy,0px))}
+.nav .barr i{transition:none}
+.dots .d{transition:transform .4s,background .4s}
+.tiers.in .tier.t2{animation:glow 2.6s ease-in-out 1s 2}
+@keyframes glow{50%{box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 80%,transparent),0 1.6rem 4.4rem color-mix(in srgb,var(--maroon) 80%,transparent)}}
+@media (max-aspect-ratio:1/1),(max-width:820px){
+ .cover .vidwrap{transform:translateY(var(--py,0px))}
+ .deck{bottom:auto}
+ .slide{justify-content:center;overflow:hidden;padding:2rem 5vw 5.6rem;min-height:100vh;min-height:100dvh}
+ .slide.s5{justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.steps.rvline::before{transform:none}}
+.cue{position:absolute;right:calc(6vw + 21%);bottom:6.2rem;transform:translateX(50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--soft);z-index:3;padding:.4rem .8rem;transition:opacity .4s}
+.cue span{font:700 .72rem var(--body);letter-spacing:.28em;text-transform:uppercase;padding-left:.28em}
+.cue .mouse{width:1.5rem;height:2.4rem;border:2px solid var(--gold);border-radius:1rem;display:block;position:relative}
+.cue .mouse b{position:absolute;left:50%;top:.4rem;width:.28rem;height:.5rem;margin-left:-.14rem;border-radius:.2rem;background:var(--gold);animation:wheel 1.8s ease-in-out infinite}
+.cue .chev{width:.7rem;height:.7rem;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);margin-top:-.2rem;animation:chev 1.8s ease-in-out infinite}
+.cue:hover span{color:var(--paper)}
+.cue.gone{opacity:0;pointer-events:none}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}80%{opacity:0;transform:translateY(.9rem)}100%{opacity:0}}
+@keyframes chev{0%,100%{opacity:.3;transform:translateY(0) rotate(45deg)}50%{opacity:1;transform:translateY(.3rem) rotate(45deg)}}
+@media (max-aspect-ratio:1/1),(max-width:820px){.cover{padding-bottom:7.5rem}.cue{right:auto;left:50%;transform:translateX(-50%);bottom:4.8rem}.cue .mouse{display:none}.cue .chev{margin-top:0}}
+@media (prefers-reduced-motion:reduce){.cue .mouse b,.cue .chev{animation:none}}
+@media print{html,body{overflow:visible;height:auto}.slide{height:100vh;min-height:0;page-break-after:always}.rv{opacity:1!important;transform:none!important}.nav,.tag{display:none}}
+.sitebtn{display:inline-block;justify-self:start;align-self:start;width:fit-content;margin-top:1.1rem;padding:.8rem 1.3rem;border-radius:999px;background:var(--maroon,#8A0204);color:#fff;font-weight:600;text-decoration:none;font-size:1rem;position:relative;z-index:5}
+.sitebtn:hover,.sitebtn:focus-visible{background:#6e0103;outline:2px solid #fff;outline-offset:2px}
+@media(min-width:821px) and (min-aspect-ratio:1/1){.s4btns{margin-top:.2rem}.s4btns .sitebtn{margin:.5rem 0 0;padding:.6rem 1.1rem;font-size:.95rem}.duo2 .chips{margin-top:.8rem}}
+.s4btns{display:flex;flex-wrap:wrap;gap:.6rem}.sitebtn.alt{background:transparent;border:1.5px solid var(--gold,#C9A24B);color:var(--gold,#C9A24B)}
+</style></head><body>
+<main class="deck" id="deck" aria-live="polite">
+
+<section class="slide cover" aria-label="Cover">
+  <div class="brand"><span></span>The Playpen School</div>
+  <div class="vidwrap"><div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+    <video class="vid" src="img/playpen-menu.mp4" poster="img/menu-poster.jpg" muted loop playsinline preload="auto" aria-label="Screen recording of the Playpen website menu opening, each item pointed at in turn"></video></div></div>
+  <div class="kicker">Website presentation &middot; for the Chairman</div>
+  <h1>Your new<br>website<span class="dot">.</span></h1>
+  <p class="lede">The finished school website, what is still needed from the school, and how we would work together.</p>
+  <a class="sitebtn" href="https://playpen-school.vercel.app" target="_blank" rel="noopener">Open the live website &rarr;</a>
+  <div class="meta">
+    <div><b>Prepared for</b>The Chairman, The Playpen School, Dhaka</div>
+    <div><b>Prepared by</b>Defined Solution, Dhaka</div>
+    <div><b>Presented by</b>Ahmad Sayeef Khan, CEO</div>
+  </div>
+  <button type="button" class="cue" id="cue" aria-label="Scroll down to the next slide"><span>Scroll</span><i class="mouse"><b></b></i><i class="chev"></i></button>
+</section>
+
+<section class="slide" aria-label="At a glance">
+  <div class="kicker">At a glance</div>
+  <h2>One calm website that tells <em>the whole school</em><span class="dot">.</span></h2>
+  <div class="nums">
+    <div class="num"><strong>43</strong><span>pages built and live, from the home page to Contact</span></div>
+    <div class="num"><strong>44</strong><span>pages planned in all; one waits for the Principal's own words</span></div>
+    <div class="num"><strong>12</strong><span>page designs that every page is made from</span></div>
+    <div class="num"><strong>1</strong><span>language: English, written plainly</span></div>
+  </div>
+  <p class="note">The screens in this presentation are the real website, live today. Facts on it come only from the school's own website. Anything the school must confirm is listed in one document.</p>
+</section>
+
+<section class="slide" aria-label="Inside the home page">
+  <div class="kicker">Inside the home page</div>
+  <h2>The opening, the building and the way in<span class="dot">.</span></h2>
+  <div class="trio">
+    <div class="tcol">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/02-hero.jpg" alt="Home page opening: The whole of a childhood, in one school"></div>
+      <div class="num3">1</div><h3>The opening</h3>
+      <ul class="list tight"><li><span><b>One line, one promise</b>"The whole of a childhood, in one school." Playgroup to A Level, one campus.</span></li></ul>
+    </div>
+    <div class="tcol">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/04-ascent-courtyards.jpg" alt="Scrolling up the ten-storey campus, courtyard level"></div>
+      <div class="num3">2</div><h3>The ten-storey climb</h3>
+      <ul class="list tight"><li><span><b>Scroll up the building</b>Courtyards, library, laboratories and terraces, one floor at a time.</span></li></ul>
+    </div>
+    <div class="tcol">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/12-admissions.jpg" alt="Visit, enquire, apply in five steps"></div>
+      <div class="num3">3</div><h3>Visit, enquire, apply</h3>
+      <ul class="list tight"><li><span><b>Five calm steps</b>From the first call to the results, with contact numbers in the same view.</span></li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" aria-label="What comes next">
+  <div class="kicker">What is built, what is left</div>
+  <h2>The full school is built. A few things need <em>the school</em><span class="dot">.</span></h2>
+  <div class="duo2">
+    <div>
+      <ul class="list tight">
+        <li><span><b>43 of 44 pages are live</b>About, Learning, Admissions, School life, Community, News, Gallery, Contact and the legal pages, in the same design as the home.</span></li>
+        <li><span><b>Decisions for the Chairman</b>Approve the live site, name who supplies the school items below, and choose whether to start Step 1.</span></li>
+        <li><span><b>What only the school can give</b>The Principal's letter, photo consent, the founding year (1977 or 1997), fee amounts, and a check of phone numbers and forms.</span></li>
+        </ul>
+      <div class="chips"><span class="done">Home ✓</span><span class="done">About ✓</span><span class="done">Learning ✓</span><span class="done">Admissions ✓</span><span class="done">School life ✓</span><span class="done">Community ✓</span><span class="done">Contact ✓</span><span>Principal's letter</span></div><div class="s4btns"><a class="sitebtn" href="https://playpen-school.vercel.app" target="_blank" rel="noopener">Open the live website &rarr;</a><a class="sitebtn alt" href="tour/" target="_blank" rel="noopener">Watch the 90-second tour</a></div>
+    </div>
+    <div class="pair">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/site-learning-1366x768.jpg" alt="The Learning section of the live website"></div>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/site-about-history-1366x768.jpg" alt="The history page of the live website"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide s5" aria-label="How we work and what it costs">
+  <div class="kicker">How we work</div>
+  <div class="s5top"><h2 class="h2s">Step 0 is done. Take the next step<span class="dot">.</span></h2>
+  <p class="s5sub">You decide at each step. Each one ends with a plan for the next.</p></div>
+  <div class="steps">
+    <div class="step zero done"><div class="n">&#10003;</div><h3>Introduction and discovery</h3><span class="free">Done &middot; 15 days</span></div>
+    <div class="step on1"><div class="n">1</div><h3>Understanding and collaboration</h3><span class="when">Next &middot; 1 month</span></div>
+    <div class="step"><div class="n">2</div><h3>Research and development</h3><span class="when">3, 6 or 12 months</span></div>
+    <div class="step"><div class="n">3</div><h3>Sustainable development</h3><span class="when">Agreed after Step 2</span></div>
+    <div class="step"><div class="n">4</div><h3>Maintenance and support</h3><span class="when">Agreed after Step 3</span></div>
+  </div>
+  <div class="freebar">
+    <span class="free">Step 0 &middot; Done &#10003;</span>
+    <span><b>2 meetings in person and 2 online</b> over 15 days</span>
+    <span><b>Brand analysis</b> and a sample website</span>
+    <span>A <b>walk through our pricing</b></span>
+  </div>
+  <div class="pickrow"><h3>Take the next step: Understanding and collaboration</h3><div class="pnote"><span class="legend"><i class="d on"></i> in-person meeting &nbsp; <i class="d"></i> online meeting</span><span>Choose your level of support.</span></div></div>
+  <div class="tiers">
+    <div class="tier t1"><div class="tname">Starter</div><div class="tprice">BDT 25,000<em>/month</em></div>
+      <div class="dots" aria-label="2 in-person and 2 online meetings"><i class="d on"></i><i class="d on"></i><b></b><i class="d"></i><i class="d"></i></div>
+      <div class="tmeet">2 in-person + 2 online meetings</div></div>
+    <div class="tier t2"><div class="ribbon">Recommended</div><div class="tname">Standard</div><div class="tprice">BDT 45,000<em>/month</em></div>
+      <div class="dots" aria-label="4 in-person and 2 online meetings"><i class="d on"></i><i class="d on"></i><i class="d on"></i><i class="d on"></i><b></b><i class="d"></i><i class="d"></i></div>
+      <div class="tmeet">4 in-person + 2 online meetings</div><div class="tplus">Twice as many in-person meetings as Starter</div></div>
+    <div class="tier t3"><div class="ribbon alt">Most complete</div><div class="tname">Premium</div><div class="tprice">BDT 75,000<em>/month</em></div>
+      <div class="dots" aria-label="8 in-person and 2 online meetings"><i class="d on"></i><i class="d on"></i><i class="d on"></i><i class="d on"></i><i class="d on"></i><i class="d on"></i><i class="d on"></i><i class="d on"></i><b></b><i class="d"></i><i class="d"></i></div>
+      <div class="tmeet">8 in-person + 2 online meetings</div><div class="tplus">Four times as many in-person meetings as Starter</div></div>
+  </div>
+</section>
+
+</main>
+<div class="tag" id="tag">The Playpen School · Website</div>
+<nav class="nav" aria-label="Slides"><button id="prev" aria-label="Previous slide">←</button><div class="count" id="count">1 / 5</div><div class="barr"><i id="fill"></i></div><button id="next" aria-label="Next slide">→</button></nav>
+<script>document.documentElement.className='';</script>
+<script>
+(function(){
+  var root=document.documentElement,slides=[].slice.call(document.querySelectorAll('.slide')),n=slides.length,cur=-1;
+  var count=document.getElementById('count'),fill=document.getElementById('fill'),prev=document.getElementById('prev'),next=document.getElementById('next');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  /* reveal on scroll */
+  var SEL='.kicker,h1,h2,.lede,.meta,.vidwrap,.num,.note,.tcol,.list>li,.chips,.pair .browser,.s5top,.steps,.step,.freebar,.pickrow,.tiers,.tier,.brand';
+  slides.forEach(function(s){var k=0;[].forEach.call(s.querySelectorAll(SEL),function(el){
+    if(el.parentElement.closest('.rv')&&!el.classList.contains('step')&&!el.classList.contains('tier'))return;
+    el.classList.add('rv');if(el.classList.contains('steps'))el.classList.add('rvline');
+    el.style.setProperty('--d',(Math.min(k++,7)*.09)+'s')})});
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('num'))countUp(e.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'}):null;
+  [].forEach.call(document.querySelectorAll('.rv'),function(el){if(io)io.observe(el);else el.classList.add('in')});
+  function countUp(el){var s=el.querySelector('strong');if(!s||reduce)return;var to=parseInt(s.textContent,10);if(isNaN(to)||to<2)return;var t0=null;s.textContent='0';
+    (function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1100);s.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(performance.now())}
+  /* active section, progress, parallax */
+  var tick=false;
+  function update(){tick=false;var y=window.scrollY||root.scrollTop,vh=window.innerHeight,mid=y+vh*.4,k=0;
+    for(var j=0;j<n;j++){if(slides[j].offsetTop<=mid)k=j}
+    if(k!==cur){cur=k;count.textContent=(k+1)+' / '+n;prev.disabled=k===0;next.disabled=k===n-1;
+      document.getElementById('tag').style.display=k===0?'none':'';if(cue)cue.classList.toggle('gone',k!==0);
+      document.querySelectorAll('video.vid').forEach(function(v){if(slides[k].contains(v)){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}else v.pause()});
+      try{history.replaceState(null,'','#'+(k+1))}catch(e){}}
+    var max=root.scrollHeight-vh;fill.style.width=(max>0?Math.min(100,y/max*100):0)+'%';
+    if(!reduce){var c=Math.min(y,vh);root.style.setProperty('--py',(c*.12)+'px');root.style.setProperty('--hy',(c*-.05)+'px')}}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(update)}},{passive:true});
+  window.addEventListener('resize',update);
+  function go(k){k=Math.max(0,Math.min(n-1,k));slides[k].scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})}
+  function secNow(){return cur<0?0:cur}
+  var cue=document.getElementById('cue');if(cue)cue.onclick=function(){go(1)};
+  prev.onclick=function(){go(secNow()-1)};next.onclick=function(){go(secNow()+1)};
+  document.addEventListener('keydown',function(e){var t=e.target&&e.target.tagName;if(t==='INPUT'||t==='TEXTAREA')return;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();go(secNow()+1)}
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();go(secNow()-1)}
+    else if(e.key==='Home'){e.preventDefault();go(0)}else if(e.key==='End'){e.preventDefault();go(n-1)}});
+  var s0=parseInt((location.hash||'').slice(1),10);
+  if(!isNaN(s0)&&s0>1&&s0<=n){root.style.scrollBehavior='auto';slides[s0-1].scrollIntoView({block:'start'});root.style.scrollBehavior=''}
+  update();
+})();
+</script></body></html>
